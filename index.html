@@ -73,7 +73,17 @@
                         url('https://imgur.com/VwLLIgK.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            /* Fixed attachment often breaks or scales poorly on mobile devices */
             background-attachment: fixed;
+        }
+
+        /* Mobile specific background adjustments */
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background-attachment: scroll;
+                background-position: 70% center; /* Adjust focus point for narrow screens */
+            }
         }
 
         .glass-card {
@@ -189,7 +199,7 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center text-center hero-gradient px-6 py-20">
-        <div class="max-w-4xl">
+        <div class="max-w-4xl relative z-10">
             <h1 id="hero-title" class="text-5xl md:text-8xl font-serif mb-6 leading-tight">
                 Sharp Looks.<br><span class="text-gold italic">Timeless Style.</span>
             </h1>
@@ -296,7 +306,7 @@
                 <span class="text-gold font-bold text-lg">$25+</span>
             </div>
             <div class="glass-card p-8 rounded-sm group hover:border-gold transition-all duration-500 reveal">
-                <i data-lucide="user" class="w-10 h-10 text-gold mb-6 group-hover:scale-110 transition-transform duration-500 origin-left"></i>
+                <i data-lucide="user" class="text-gold w-10 h-10 mb-6 group-hover:scale-110 transition-transform duration-500 origin-left"></i>
                 <h3 class="text-2xl mb-4 font-serif">Executive Package</h3>
                 <p class="text-gray-400 text-sm mb-6 leading-relaxed">The works. Signature haircut, beard trim, and a luxury revitalizing facial mask.</p>
                 <span class="text-gold font-bold text-lg">$75+</span>
